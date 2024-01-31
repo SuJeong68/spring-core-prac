@@ -7,7 +7,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class Main {
 
     public static void main(String[] args) {
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext("com.nhnacademy.edu.config");
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext("com.sudang.til.config");
 
         User user = new User("이수정", "ssudangl68@gmail.com", "010-0000-0000");
 

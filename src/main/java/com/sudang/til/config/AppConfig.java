@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 @Configuration
-@ComponentScan({"com.sudang.til.sender", "com.sudang.til.aop"})
+@ComponentScan(basePackages = {"com.sudang.til.sender", "com.sudang.til.aop"})
 @EnableAspectJAutoProxy
 public class AppConfig {
 
