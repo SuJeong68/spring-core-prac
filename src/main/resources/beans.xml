@@ -12,8 +12,18 @@
   <!-- @Required 애너테이션 사용을 위해 추가 / Spring framework 5 부터 deplicated -->
   <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor" />
 
-  <bean id="emailMessageSender" class="com.sudang.til.sender.impl.EmailMessageSender" init-method="init" destroy-method="cleanup"></bean>
-  <bean id="smsMessageSender" class="com.sudang.til.sender.impl.SmsMessageSender" init-method="init" destroy-method="cleanup"></bean>
+  <context:property-placeholder location="classpath:sender.properties" />
+
+  <bean id="emailMessageSender" class="com.sudang.til.sender.impl.EmailMessageSender">
+    <qualifier type="com.sudang.til.custom.SendMethod">
+      <attribute key="value" value="EMAIL"/>
+    </qualifier>
+  </bean>
+  <bean id="smsMessageSender" class="com.sudang.til.sender.impl.SmsMessageSender">
+    <qualifier type="com.sudang.til.custom.SendMethod">
+      <attribute key="value" value="SMS"/>
+    </qualifier>
+  </bean>
 
   <bean id="messageSendService" class="com.sudang.til.service.MessageSendService"></bean>
 

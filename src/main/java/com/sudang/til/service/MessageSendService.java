@@ -1,22 +1,21 @@
 package com.sudang.til.service;
 
+import com.sudang.til.custom.SendMethod;
+import com.sudang.til.custom.SendMethod.Method;
 import com.sudang.til.domain.User;
 import com.sudang.til.sender.MessageSender;
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class MessageSendService {
 
-    private final List<MessageSender> messageSenders;
+    private final MessageSender messageSender;
 
     @Autowired
-    public MessageSendService(List<MessageSender> messageSenders) {
-        this.messageSenders = messageSenders;
+    public MessageSendService(@SendMethod(value = Method.EMAIL) MessageSender messageSender) {
+        this.messageSender = messageSender;
     }
 
     public void doSendService(User user, String message) {
-        for (MessageSender messageSender : messageSenders) {
-            messageSender.sendMessage(user, message);
-        }
+        messageSender.sendMessage(user, message);
     }
 }
