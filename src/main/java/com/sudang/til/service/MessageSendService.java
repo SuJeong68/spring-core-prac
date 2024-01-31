@@ -5,8 +5,12 @@ import com.sudang.til.custom.SendMethod.Method;
 import com.sudang.til.domain.User;
 import com.sudang.til.sender.MessageSender;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 
 public class MessageSendService {
+
+    @Value("${method}")
+    private String method;
 
     private final MessageSender messageSender;
 
@@ -16,6 +20,7 @@ public class MessageSendService {
     }
 
     public void doSendService(User user, String message) {
+        System.out.println("Method = " + method);
         messageSender.sendMessage(user, message);
     }
 }
