@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:context="http://www.springframework.org/schema/context"
   xsi:schemaLocation="
-        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-  <beans default-init-method="init" default-destroy-method="cleanup">
-    <bean id="emailMessageSender" class="com.sudang.til.sender.impl.EmailMessageSender"></bean>
-    <bean id="smsMessageSender" class="com.sudang.til.sender.impl.SmsMessageSender"></bean>
+  <!-- annotation 설정을 위해 추가 -->
+  <context:annotation-config/>
 
-    <bean id="messageSendService" class="com.sudang.til.service.MessageSendService">
-      <constructor-arg ref="emailMessageSender"></constructor-arg>
-    </bean>
-  </beans>
+  <!-- @Required 애너테이션 사용을 위해 추가 / Spring framework 5 부터 deplicated -->
+  <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor" />
+
+  <bean id="emailMessageSender" class="com.sudang.til.sender.impl.EmailMessageSender" init-method="init" destroy-method="cleanup"></bean>
+  <bean id="smsMessageSender" class="com.sudang.til.sender.impl.SmsMessageSender" init-method="init" destroy-method="cleanup"></bean>
+
+  <bean id="messageSendService" class="com.sudang.til.service.MessageSendService"></bean>
 
 </beans>
