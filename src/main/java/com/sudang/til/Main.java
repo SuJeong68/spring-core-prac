@@ -1,7 +1,7 @@
-package com.nhnacademy.edu;
+package com.sudang.til;
 
-import com.nhnacademy.edu.domain.User;
-import com.nhnacademy.edu.service.MessageSendService;
+import com.sudang.til.domain.User;
+import com.sudang.til.service.MessageSendService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class Main {

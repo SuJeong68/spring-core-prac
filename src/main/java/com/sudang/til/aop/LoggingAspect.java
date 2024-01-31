@@ -1,6 +1,6 @@
-package com.nhnacademy.edu.aop;
+package com.sudang.til.aop;
 
-import com.nhnacademy.edu.domain.User;
+import com.sudang.til.domain.User;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -12,10 +12,10 @@ import org.springframework.util.StopWatch;
 @Component
 public class LoggingAspect {
 
-    @Pointcut("execution(public * com.nhnacademy.edu.sender.MessageSender.sendMessage(..)))")
+    @Pointcut("execution(public * com.sudang.til.sender.MessageSender.sendMessage(..)))")
     private void sendMessagePointCut() {}
 
-    @Around("com.nhnacademy.edu.aop.LoggingAspect.sendMessagePointCut() && args(user, ..)")
+    @Around("com.sudang.til.aop.LoggingAspect.sendMessagePointCut() && args(user, ..)")
     private Object logging(ProceedingJoinPoint joinPoint, User user) throws Throwable {
         user = new User("조작", "jojak@gmail.com", "010-9999-9999");
         Object[] args = new Object[]{user, "조작된 메세지"};

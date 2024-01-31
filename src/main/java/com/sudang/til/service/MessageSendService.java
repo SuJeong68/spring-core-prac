@@ -1,7 +1,7 @@
-package com.nhnacademy.edu.service;
+package com.sudang.til.service;
 
-import com.nhnacademy.edu.domain.User;
-import com.nhnacademy.edu.sender.MessageSender;
+import com.sudang.til.domain.User;
+import com.sudang.til.sender.MessageSender;
 
 public class MessageSendService {
 

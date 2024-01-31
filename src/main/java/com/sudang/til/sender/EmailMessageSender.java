@@ -1,6 +1,6 @@
-package com.nhnacademy.edu.sender;
+package com.sudang.til.sender;
 
-import com.nhnacademy.edu.domain.User;
+import com.sudang.til.domain.User;
 import org.springframework.stereotype.Component;
 
 @Component

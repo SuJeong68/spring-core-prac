@@ -1,4 +1,4 @@
-package com.nhnacademy.edu.domain;
+package com.sudang.til.domain;
 
 public class User {
     private final String name;

@@ -1,7 +1,7 @@
-package com.nhnacademy.edu.config;
+package com.sudang.til.config;
 
-import com.nhnacademy.edu.sender.MessageSender;
-import com.nhnacademy.edu.service.MessageSendService;
+import com.sudang.til.sender.MessageSender;
+import com.sudang.til.service.MessageSendService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 @Configuration
-@ComponentScan({"com.nhnacademy.edu.sender", "com.nhnacademy.edu.aop"})
+@ComponentScan({"com.sudang.til.sender", "com.sudang.til.aop"})
 @EnableAspectJAutoProxy
 public class AppConfig {
 
