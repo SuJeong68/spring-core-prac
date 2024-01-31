@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+  <beans default-init-method="init" default-destroy-method="cleanup">
+    <bean id="emailMessageSender" class="com.sudang.til.sender.impl.EmailMessageSender"></bean>
+    <bean id="smsMessageSender" class="com.sudang.til.sender.impl.SmsMessageSender"></bean>
+
+    <bean id="messageSendService" class="com.sudang.til.service.MessageSendService">
+      <constructor-arg ref="emailMessageSender"></constructor-arg>
+    </bean>
+  </beans>
+
+</beans>
